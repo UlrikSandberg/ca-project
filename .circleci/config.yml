@@ -43,6 +43,6 @@ workflows:
       - dockerize:
           requires: 
             - test
-      - deploy-test
+      - deploy-test:
           requires: 
             - dockerize
