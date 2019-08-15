@@ -29,7 +29,12 @@ jobs:
           root: .
           paths:
             - .
-
+  deploy-test:
+    machine: true
+    steps: 
+      - attach_workspace:
+          at: .
+      - run: sh deploymentscript.sh   
 workflows:
   version: 2
   two_job_flow:
@@ -38,3 +43,6 @@ workflows:
       - dockerize:
           requires: 
             - test
+      - deploy-test:
+          requires: 
+            - dockerize
