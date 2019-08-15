@@ -28,7 +28,7 @@ jobs:
       - run: sudo apt install zip -y
       - run: zip -r artifact.zip .
       - store_artifacts:
-          path: ./artifacts.zip
+          path: /artifacts.zip
           destination: build-artifacts
       - persist_to_workspace:
           root: .
