@@ -31,10 +31,13 @@ jobs:
             - .
   deploy-test:
     machine: true
-    steps: 
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "bc:b2:8d:c5:3c:61:9e:44:93:37:a3:2b:cf:36:09:a2"
       - attach_workspace:
           at: .
-      - run: sh deploymentscript.sh   
+      - run: sh deploymentscript.sh
 workflows:
   version: 2
   two_job_flow:
