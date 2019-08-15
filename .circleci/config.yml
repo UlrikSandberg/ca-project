@@ -57,8 +57,8 @@ workflows:
             - dockerize
           filters:
             branches:
-            ignore:
-              - master
+              ignore:
+                - master
       - deploy-product:
           filters:
             branches:
