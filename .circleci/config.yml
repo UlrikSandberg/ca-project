@@ -38,14 +38,28 @@ jobs:
       - attach_workspace:
           at: .
       - run: sh deploymentscript.sh
+  deploy-product:
+    machine: true
+    steps:
+      - attach_workspace:
+          at: .
+      - run: sh deploymentscript2.sh
 workflows:
   version: 2
   two_job_flow:
     jobs:
       - test
       - dockerize:
-          requires: 
+          requires:
             - test
       - deploy-test:
-          requires: 
+          requires:
             - dockerize
+          filters:
+            branches:
+            ignore:
+              - master
+      - deploy-product:
+          filters:
+            branches:
+               - only: master
