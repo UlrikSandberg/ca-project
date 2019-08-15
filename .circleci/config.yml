@@ -30,7 +30,7 @@ jobs:
       - run: zip -r artifact.zip .
       - run: ls
       - store_artifacts:
-          path: /artifacts.zip
+          path: /home/circleci/project/artifact.zip
           destination: build-artifacts
       - persist_to_workspace:
           root: .
