@@ -36,5 +36,5 @@ workflows:
     jobs:
       - test
       - dockerize:
-        requires: 
-          - test
+          requires: 
+            - test
