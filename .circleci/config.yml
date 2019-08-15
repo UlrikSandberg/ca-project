@@ -62,4 +62,4 @@ workflows:
       - deploy-product:
           filters:
             branches:
-               - only: master
+              - only: master
