@@ -22,11 +22,13 @@ jobs:
     steps: 
       - attach_workspace:
           at: .
+      - run: pwd
       - run: docker login -u $DOCKER_USER -p $DOCKER_PASS
       - run: docker build -t $DOCKER_USER/ca-project:$CIRCLE_SHA1 .
       - run: docker push $DOCKER_USER/ca-project:$CIRCLE_SHA1
       - run: sudo apt install zip -y
       - run: zip -r artifact.zip .
+      - run: ls
       - store_artifacts:
           path: /artifacts.zip
           destination: build-artifacts
